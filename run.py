@@ -43,7 +43,7 @@ def check_difficulty(difficulty):
                 "Type the ocean name or the difficulty level."
                 )
     except ValueError as e:
-        print(f"Invalid data: {e} Please try again.")
+        print(f"{e} Please try again.")
         return False
 
     return True
@@ -54,12 +54,15 @@ def run_game():
     Main function. Will incorporate board and ship generation.
     """
 
-def generate_board():
+class Board():
     """
-    Will generate the game board. Either a straight figure print
-    or generate from lists/dictionary.
-    Difficulties will change board size.
+    Will generate the game board and ships.
+    Will change size based on difficulty.
     """
+    def __init__(self, size, num_ships, ship_class):
+        self.size = size,
+        
+
 
 def generate_ships():
     """
