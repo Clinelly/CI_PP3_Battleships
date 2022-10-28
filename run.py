@@ -38,14 +38,14 @@ def main_screen():
 def check_difficulty(difficulty):
     valid_difficulties = {'easy', 'medium', 'hard', 'mediterranean', 'atlantic', 'pacific'}
     try:
-        if difficulty.lower() not in valid_difficulties:
+        if str(difficulty) not in valid_difficulties:
             raise ValueError(
-                "Please type the ocean name or the difficulty level."
+                "Type the ocean name or the difficulty level."
                 )
     except ValueError as e:
-        print(f"Invalid data: {e} please try again.")
+        print(f"Invalid data: {e} Please try again.")
         return False
-        
+
     return True
         
 
