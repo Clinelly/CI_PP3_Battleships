@@ -36,11 +36,11 @@ def main_screen():
     return difficulty.lower()
 
 def check_difficulty(difficulty):
-    valid_difficulties = {'easy', 'medium', 'hard', 'mediterranean', 'atlantic', 'pacific'}
+    valid_difficulties = {'easy', 'medium', 'hard'}
     try:
         if str(difficulty) not in valid_difficulties:
             raise ValueError(
-                "Type the ocean name or the difficulty level."
+                "Type in the difficulty level."
                 )
     except ValueError as e:
         print(f"{e} Please try again.")
@@ -54,14 +54,34 @@ def run_game():
     Main function. Will incorporate board and ship generation.
     """
 
-class Board():
+class Board(difficulty):
     """
     Will generate the game board and ships.
+    Sets size for different ships.
     Will change size based on difficulty.
     """
-    def __init__(self, size, num_ships, ship_class):
+    def __init__(self, size, num_ships, ship_class, difficulty):
         self.size = size,
-        
+        def board = [["." for x in range(size)] for y in range(size)]
+        self.num_ships = num_ships
+        self.ship_class = ship_class
+        self.difficulty = difficulty
+
+        def board_size(self, difficulty):
+            if self.difficulty == 'easy':
+                size = 5
+            elif self.difficulty == 'medium':
+                size = 7
+            elif self.difficulty == 'hard':
+                size = 9
+            return size
+
+        def print_board(self, size):
+            for row in self.board:
+                print(" ".join(row))
+
+
+
 
 
 def generate_ships():
