@@ -33,7 +33,22 @@ def main_screen():
     print(f"Welcome Admiral {name}.")
     difficulty = input("Choose your theatre of operations:\n The Mediterranean Sea (Easy),\n The Atlantic Ocean (Normal),\n The Pacific Ocean (Hard).\n")
     print(f"You have selected: {difficulty}")
-    
+    return difficulty.lower()
+
+def check_difficulty(difficulty):
+    valid_difficulties = {'easy', 'medium', 'hard', 'mediterranean', 'atlantic', 'pacific'}
+    try:
+        if difficulty.lower() not in valid_difficulties:
+            raise ValueError(
+                "Please type the ocean name or the difficulty level."
+                )
+    except ValueError as e:
+        print(f"Invalid data: {e} please try again.")
+        return False
+        
+    return True
+        
+
 def run_game():
     """
     Main function. Will incorporate board and ship generation.
@@ -66,4 +81,5 @@ def game_over():
     Prompts user to restart or exit.
     """
 
-main_screen()
+difficulty = main_screen()
+check_difficulty(difficulty)
