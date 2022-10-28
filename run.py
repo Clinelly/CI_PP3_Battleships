@@ -29,8 +29,11 @@ def main_screen():
     print("        |_.__/ \__,_|\__|\__|_|\___||___/_| |_|_| .__/ |___/ ")
     print("                                                | |   ") 
     print("                                                |_| ")
-
-
+    name = input("Please enter your name:\n")
+    print(f"Welcome Admiral {name}.")
+    difficulty = input("Choose your theatre of operations:\n The Mediterranean Sea (Easy),\n The Atlantic Ocean (Normal),\n The Pacific Ocean (Hard).\n")
+    print(f"You have selected: {difficulty}")
+    
 def run_game():
     """
     Main function. Will incorporate board and ship generation.
