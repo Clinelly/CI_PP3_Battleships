@@ -62,12 +62,12 @@ class GameBoard():
         self.board = board
     
     def co_ordinates():
-        co_ordinates = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9}
+        co_ordinates = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8,}
         return co_ordinates
     
     def generate_board(self):
-        print(" A B C D E F G H I J ")
-        print(" x-x-x-x-x-x-x-x-x-x ")
+        print(" A B C D E F G H I ")
+        print(" x-x-x-x-x-x-x-x-x ")
         row_number = 1
         for row in self.board:
             print("%d|%s|" % (row_number, "|".join(row)))
@@ -79,11 +79,28 @@ class Warship:
     
     def generate_fleet(self):
         for i in range(5):
-            self.x_row, self.y_column = random.randint(0, 9), random.randint(0, 9)
+            self.x_row, self.y_column = random.randint(0, 8), random.randint(0, 8)
             while self.board[self.x_row][self.y_row] == "X":
-               self.x_row, self.y_column = random.randint(0, 9), random.randint(0, 9)
+               self.x_row, self.y_column = random.randint(0, 8), random.randint(0, 8)
             while self.board[self.x_row][self.y_row] == "X"
         return self.board
+    
+    def user_fire_mission(self):
+        try:
+            x_row = input("Enter X Co-Ordinate for Fire Mission: ")
+            while x_row not in "123456789":
+                print("Invalid co-ordinate. Enter another.")
+                x_row = input("Enter X Co-Ordinate for Fire Mission: ")
+            
+            y_column = input("Enter Y Co-Ordinate for Fire Mission: ").upper()
+            while y_column not in "ABCDEFGHI":
+                print("Invalid co-ordinate. Enter another.")
+                y_column = input("Enter Y Co-Ordinate for Fire Mission: ").upper()
+            return int(x_row) -1, GameBoard.co_ordinates()[y_column]
+        except ValueError and KeyError:
+            Print("Not a valid input.")
+            return self.user_fire_mission()
+
         
 
 
