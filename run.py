@@ -54,32 +54,37 @@ def run_game():
     Main function. Will incorporate board and ship generation.
     """
 
-class Board(difficulty):
+class GameBoard():
     """
     Will generate the game board and ships.
-    Sets size for different ships.
-    Will change size based on difficulty.
     """
-    def __init__(self, size, num_ships, ship_class, difficulty):
-        self.size = size,
-        def board = [["." for x in range(size)] for y in range(size)]
-        self.num_ships = num_ships
-        self.ship_class = ship_class
-        self.difficulty = difficulty
+    def __init__(self, board):
+        self.board = board
+    
+    def co_ordinates():
+        co_ordinates = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9}
+        return co_ordinates
+    
+    def generate_board(self):
+        print(" A B C D E F G H I J ")
+        print(" x-x-x-x-x-x-x-x-x-x ")
+        row_number = 1
+        for row in self.board:
+            print("%d|%s|" % (row_number, "|".join(row)))
+            row_number += 1
 
-        def board_size(self, difficulty):
-            if self.difficulty == 'easy':
-                size = 5
-            elif self.difficulty == 'medium':
-                size = 7
-            elif self.difficulty == 'hard':
-                size = 9
-            return size
-
-        def print_board(self, size):
-            for row in self.board:
-                print(" ".join(row))
-
+class Warship:
+    def __init__(self, board):
+        self.board = board
+    
+    def generate_fleet(self):
+        for i in range(5):
+            self.x_row, self.y_column = random.randint(0, 9), random.randint(0, 9)
+            while self.board[self.x_row][self.y_row] == "X":
+               self.x_row, self.y_column = random.randint(0, 9), random.randint(0, 9)
+            while self.board[self.x_row][self.y_row] == "X"
+        return self.board
+        
 
 
 
