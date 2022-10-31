@@ -60,7 +60,7 @@ class GameBoard():
         return co_ordinates
     
     def generate_board(self):
-        print(" A B C D E F G H I ")
+        print("  A B C D E F G H I ")
         print(" x-x-x-x-x-x-x-x-x ")
         row_number = 1
         for row in self.board:
@@ -94,9 +94,9 @@ class Warship:
             x_row = input("Enter X Co-Ordinate for Fire Mission: ")
             while x_row not in "123456789":
                 print("Invalid co-ordinate. Enter another.")
-                x_row = input("Enter X Co-Ordinate for Fire Mission: ")
+                x_row = input("Enter X Co-Ordinate (1-9) for Fire Mission: ")
             
-            y_column = input("Enter Y Co-Ordinate for Fire Mission: ").upper()
+            y_column = input("Enter Y Co-Ordinate (A-I) for Fire Mission: ").upper()
             while y_column not in "ABCDEFGHI":
                 print("Invalid co-ordinate. Enter another.")
                 y_column = input("Enter Y Co-Ordinate for Fire Mission: ").upper()
@@ -120,8 +120,8 @@ def run_game():
     enemy_board = GameBoard([[" "] * 9 for i in range(9)])
     user_target_board = GameBoard([[" "] * 9 for i in range(9)])
     Warship.generate_fleet(enemy_board)
-    # 10 turn counter
-    missiles = 10
+    # turn counter
+    missiles = 20
     while missiles > 0 :
         GameBoard.generate_board(user_target_board)
         # get user input
@@ -143,7 +143,7 @@ def run_game():
             break
         else:
             missiles -= 1
-            print(f"You have {missiles} remaining.")
+            print(f"You have {missiles} missiles remaining.")
             if missiles == 0:
                 print("We are out of missiles. The enemy fleet has escaped.")
                 GameBoard.generate_board(user_target_board)
