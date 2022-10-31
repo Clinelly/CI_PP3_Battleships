@@ -47,12 +47,6 @@ def check_difficulty(difficulty):
         return False
 
     return True
-        
-
-def run_game():
-    """
-    Main function. Will incorporate board and ship generation.
-    """
 
 class GameBoard():
     """
@@ -78,6 +72,10 @@ class Warship:
         self.board = board
     
     def generate_fleet(self):
+    """
+    Will generate a series of ships.
+    Ship sizes preset but locations generated randomly.
+    """
         for i in range(5):
             self.x_row, self.y_column = random.randint(0, 8), random.randint(0, 8)
             while self.board[self.x_row][self.y_row] == "X":
@@ -86,6 +84,12 @@ class Warship:
         return self.board
     
     def user_fire_mission(self):
+    """
+    Takes the user input and checks for validation.
+    Assigns the shot to a co-ordinate and checks for hit/miss/sink.
+    Generates computer shot.
+    Feeds back to user.
+    """
         try:
             x_row = input("Enter X Co-Ordinate for Fire Mission: ")
             while x_row not in "123456789":
@@ -100,25 +104,50 @@ class Warship:
         except ValueError and KeyError:
             Print("Not a valid input.")
             return self.user_fire_mission()
+    
+    def count_damaged_ships(self):
+        damaged_ships = 0
+        for row in self.board:
+            for column in row:
+                if column == "X":
+                    damaged_ships +=1
+        return damaged_ships
 
-        
-
-
-
-
-def generate_ships():
+def run_game():
     """
-    Will generate a series of ships.
-    Ship sizes preset but locations generated randomly.
+    Main function. Will incorporate board and ship generation.
     """
+    enemy_board = GameBoard.([[" "] * 9 for i in range(9)])
+    user_target_board = GameBoard(.([[" "] * 9] for i in range(9)))
+    Warships.generate_fleet(enemy_board)
+    # 10 turn counter
+    missiles = 10
+    while missiles > 0 :
+        GameBoard.generate_board(user_target_board)
+        # get user input
+        user_x_row, user_y_column = Warship.user_fire_mission(object)
+        # checks if input is valid
+        while user_target_board.board[user_x_row][user_y_column] == "-" or user_target_board.board[user_x_row][user_y_column] == "X":
+            print("You have already fired on that location. Choose another.")
+            user_x_row, user_y_column = Warship.user_fire_mission(object)
+        # check for hit or miss
+        if enemy_board.board[user_x_row][user_y_column] == "X":
+            print("Direct hit! Enemy warship sunk!")
+            user_target_board.board[user_x_row][user_y_column] = "X"
+        else:
+            print("Miss. No enemy warship at those co-ordinates.")
+            user_target_board.board[user_x_row][user_y_column] = "-"
+        # check victory condition
+        if Warship.count_damaged_ships(user_targer_board) == 5:
+            print("Victory! The enemy fleet has been sunk!")
+            break
+        else:
+            missiles -= 1
+            print(f"You have {missiles} remaining.")
+            if missiles == 0
+            print("We are out of missiles. The enemy fleet has escaped.")
+            GameBoard.generate_board(user_target_board)
 
-def ship_shooting():
-    """
-    Takes the user input and checks for validation.
-    Assigns the shot to a co-ordinate and checks for hit/miss/sink.
-    Generates computer shot.
-    Feeds back to user.
-    """
 
 def game_over():
     """
@@ -126,5 +155,12 @@ def game_over():
     Prompts user to restart or exit.
     """
 
-difficulty = main_screen()
-check_difficulty(difficulty)
+def main():
+    """
+    Run all functions.
+    """
+    difficulty = main_screen()
+    check_difficulty(difficulty)
+    run_game()
+
+main()
