@@ -72,24 +72,24 @@ class Warship:
         self.board = board
     
     def generate_fleet(self):
-    """
-    Will generate a series of ships.
-    Ship sizes preset but locations generated randomly.
-    """
+        """
+        Will generate a series of ships.
+        Ship sizes preset but locations generated randomly.
+        """
         for i in range(5):
             self.x_row, self.y_column = random.randint(0, 8), random.randint(0, 8)
-            while self.board[self.x_row][self.y_row] == "X":
+            while self.board[self.x_row][self.y_column] == "X":
                self.x_row, self.y_column = random.randint(0, 8), random.randint(0, 8)
-            while self.board[self.x_row][self.y_row] == "X"
+            self.board[self.x_row][self.y_column] = "X"
         return self.board
     
     def user_fire_mission(self):
-    """
-    Takes the user input and checks for validation.
-    Assigns the shot to a co-ordinate and checks for hit/miss/sink.
-    Generates computer shot.
-    Feeds back to user.
-    """
+        """
+        Takes the user input and checks for validation.
+        Assigns the shot to a co-ordinate and checks for hit/miss/sink.
+        Generates computer shot.
+        Feeds back to user.
+        """
         try:
             x_row = input("Enter X Co-Ordinate for Fire Mission: ")
             while x_row not in "123456789":
@@ -117,9 +117,9 @@ def run_game():
     """
     Main function. Will incorporate board and ship generation.
     """
-    enemy_board = GameBoard.([[" "] * 9 for i in range(9)])
-    user_target_board = GameBoard(.([[" "] * 9] for i in range(9)))
-    Warships.generate_fleet(enemy_board)
+    enemy_board = GameBoard([[" "] * 9 for i in range(9)])
+    user_target_board = GameBoard([[" "] * 9] for i in range(9))
+    Warship.generate_fleet(enemy_board)
     # 10 turn counter
     missiles = 10
     while missiles > 0 :
@@ -144,9 +144,9 @@ def run_game():
         else:
             missiles -= 1
             print(f"You have {missiles} remaining.")
-            if missiles == 0
-            print("We are out of missiles. The enemy fleet has escaped.")
-            GameBoard.generate_board(user_target_board)
+            if missiles == 0:
+                print("We are out of missiles. The enemy fleet has escaped.")
+                GameBoard.generate_board(user_target_board)
 
 
 def game_over():
@@ -159,8 +159,8 @@ def main():
     """
     Run all functions.
     """
-    difficulty = main_screen()
-    check_difficulty(difficulty)
+    #difficulty = main_screen()
+    #check_difficulty(difficulty)
     run_game()
 
 main()
