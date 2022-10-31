@@ -61,7 +61,7 @@ class GameBoard():
     
     def generate_board(self):
         print("  A B C D E F G H I ")
-        print(" x-x-x-x-x-x-x-x-x ")
+        print("  x-x-x-x-x-x-x-x-x ")
         row_number = 1
         for row in self.board:
             print("%d|%s|" % (row_number, "|".join(row)))
