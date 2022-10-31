@@ -1,6 +1,5 @@
 #imports the inbuilt python random module
 import random
-
 def main_screen():
     """
     A function to generate the main screen before the game starts.
@@ -47,6 +46,7 @@ def check_difficulty(difficulty):
         return False
 
     return True
+
 
 class GameBoard():
     """
@@ -118,7 +118,7 @@ def run_game():
     Main function. Will incorporate board and ship generation.
     """
     enemy_board = GameBoard([[" "] * 9 for i in range(9)])
-    user_target_board = GameBoard([[" "] * 9] for i in range(9))
+    user_target_board = GameBoard([[" "] * 9 for i in range(9)])
     Warship.generate_fleet(enemy_board)
     # 10 turn counter
     missiles = 10
@@ -138,7 +138,7 @@ def run_game():
             print("Miss. No enemy warship at those co-ordinates.")
             user_target_board.board[user_x_row][user_y_column] = "-"
         # check victory condition
-        if Warship.count_damaged_ships(user_targer_board) == 5:
+        if Warship.count_damaged_ships(user_target_board) == 5:
             print("Victory! The enemy fleet has been sunk!")
             break
         else:
@@ -159,8 +159,8 @@ def main():
     """
     Run all functions.
     """
-    #difficulty = main_screen()
-    #check_difficulty(difficulty)
+    difficulty = main_screen()
+    check_difficulty(difficulty)
     run_game()
 
 main()
