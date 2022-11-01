@@ -91,18 +91,18 @@ class Warship:
         Feeds back to user.
         """
         try:
-            x_row = input("Enter X Co-Ordinate for Fire Mission: ")
+            y_column = input("Enter Co-Ordinate (A-I) for Fire Mission: ").upper()
+            while y_column not in "ABCDEFGHI":
+                print("Invalid co-ordinate. Enter another.")
+                y_column = input("Enter Co-Ordinate (A-I) for Fire Mission: ").upper()
+            
+            x_row = input("Enter Co-Ordinate (1-9) for Fire Mission: ")
             while x_row not in "123456789":
                 print("Invalid co-ordinate. Enter another.")
                 x_row = input("Enter X Co-Ordinate (1-9) for Fire Mission: ")
-            
-            y_column = input("Enter Y Co-Ordinate (A-I) for Fire Mission: ").upper()
-            while y_column not in "ABCDEFGHI":
-                print("Invalid co-ordinate. Enter another.")
-                y_column = input("Enter Y Co-Ordinate for Fire Mission: ").upper()
             return int(x_row) -1, GameBoard.co_ordinates()[y_column]
         except ValueError and KeyError:
-            Print("Not a valid input.")
+            Print("Not a valid input. Enter a letter or a number.")
             return self.user_fire_mission()
     
     def count_damaged_ships(self):
