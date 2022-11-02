@@ -79,7 +79,7 @@ class Warship:
         for i in range(5):
             self.x_row, self.y_column = random.randint(0, 8), random.randint(0, 8)
             while self.board[self.x_row][self.y_column] == "X":
-               self.x_row, self.y_column = random.randint(0, 8), random.randint(0, 8)
+                self.x_row, self.y_column = random.randint(0, 8), random.randint(0, 8)
             self.board[self.x_row][self.y_column] = "X"
         return self.board
     
@@ -87,23 +87,29 @@ class Warship:
         """
         Takes the user input and checks for validation.
         Assigns the shot to a co-ordinate and checks for hit/miss/sink.
-        Generates computer shot.
         Feeds back to user.
         """
         try:
             y_column = input("Enter Co-Ordinate (A-I) for Fire Mission: ").upper()
             while y_column not in "ABCDEFGHI":
                 print("Invalid co-ordinate. Enter another.")
-                y_column = input("Enter Co-Ordinate (A-I) for Fire Mission: ").upper()
-            
+                y_column = input("Enter Co-Ordinate (A-I) for Fire Mission: ").upper()            
             x_row = input("Enter Co-Ordinate (1-9) for Fire Mission: ")
             while x_row not in "123456789":
                 print("Invalid co-ordinate. Enter another.")
                 x_row = input("Enter X Co-Ordinate (1-9) for Fire Mission: ")
             return int(x_row) -1, GameBoard.co_ordinates()[y_column]
         except ValueError and KeyError:
-            Print("Not a valid input. Enter a letter or a number.")
+            print("Not a valid input. Enter a letter or a number.")
             return self.user_fire_mission()
+
+    def enemy_fire_mission(self):
+        """
+        Generates computer shot.
+        """
+        y_column = random.choice(["A", "B", "C", "D", "E", "F", "G", "H", "I"]).upper()
+        x_row = random.randint(0, 8)
+        return int(x_row) -1, GameBoard.co_ordinates()[y_column]
     
     def count_damaged_ships(self):
         damaged_ships = 0
@@ -118,12 +124,16 @@ def run_game():
     Main function. Will incorporate board and ship generation.
     """
     enemy_board = GameBoard([[" "] * 9 for i in range(9)])
+    enemy_target_board = GameBoard([[" "] * 9 for i in range(9)])
+    user_board = GameBoard([[" "] * 9 for i in range(9)])
     user_target_board = GameBoard([[" "] * 9 for i in range(9)])
     Warship.generate_fleet(enemy_board)
+    Warship.generate_fleet(user_board)
     # turn counter
-    missiles = 20
+    missiles = 200
     while missiles > 0 :
         GameBoard.generate_board(user_target_board)
+        GameBoard.generate_board(enemy_target_board)
         # get user input
         user_x_row, user_y_column = Warship.user_fire_mission(object)
         # checks if input is valid
@@ -147,6 +157,26 @@ def run_game():
             if missiles == 0:
                 print("We are out of missiles. The enemy fleet has escaped.")
                 GameBoard.generate_board(user_target_board)
+        # get computer input
+        enemy_x_row, enemy_y_column = Warship.enemy_fire_mission(object)
+        while enemy_target_board.board[enemy_x_row][enemy_y_column] == "-" or enemy_target_board.board[enemy_x_row][enemy_y_column] == "X":
+            enemy_x_row, enemy_y_column = Warship.enemy_fire_mission(object)
+        # check for computer hit or miss
+        if user_board.board[enemy_x_row][enemy_y_column] == "X":
+            print("Direct hit! The enemy have sunk one of our ships!")
+            enemy_target_board.board[enemy_x_row][enemy_y_column] = "X"
+        else:
+            print("The enemy have missed!")
+            enemy_target_board.board[enemy_x_row][enemy_y_column] = "-"
+        # check victory condition
+        if Warship.count_damaged_ships(enemy_target_board) == 5:
+            print("Retreat! The enemy have sunk our fleet!")
+            break
+        else:
+            missiles -= 1
+            if missiles == 0:
+                print("The enemy have run out of missiles.")
+                GameBoard.generate_board(enemy_target_board)
 
 
 def game_over():
@@ -159,8 +189,8 @@ def main():
     """
     Run all functions.
     """
-    difficulty = main_screen()
-    check_difficulty(difficulty)
+    #difficulty = main_screen()
+    #check_difficulty(difficulty)
     run_game()
 
 main()
