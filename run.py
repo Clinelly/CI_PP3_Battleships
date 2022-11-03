@@ -1,5 +1,21 @@
-#imports the inbuilt python random module
+# imports the inbuilt python random module
 import random
+# imports google spreadhseet and google credentials APIs
+import gspread
+from google.oauth2.service_account import Credentials
+
+# Global variables assigned to allow accress through Google APIS to spreadsheet.
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('user_data_sheet')
+
 def main_screen():
     """
     A function to generate the main screen before the game starts.
