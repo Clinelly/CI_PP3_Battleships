@@ -189,8 +189,9 @@ def main():
     """
     Run all functions.
     """
-    #difficulty = main_screen()
-    #check_difficulty(difficulty)
+    # difficulty = 
+    main_screen()
+    # check_difficulty(difficulty)
     run_game()
 
 main()
