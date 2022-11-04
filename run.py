@@ -16,6 +16,14 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('user_data_sheet')
 
+def login():
+    """
+    Asks user if they're a new or existing user.
+    Asks new users to create login details.
+    Checks if existing users have correct information.
+    """
+    user_login = SHEET.worksheet('login_details')
+
 def main_screen():
     """
     A function to generate the main screen before the game starts.
