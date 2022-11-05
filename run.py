@@ -1,5 +1,6 @@
 # imports the inbuilt python random module
 import random
+from datetime import date
 # imports google spreadhseet and google credentials APIs
 import gspread
 from google.oauth2.service_account import Credentials
@@ -23,6 +24,38 @@ def login():
     Checks if existing users have correct information.
     """
     user_login = SHEET.worksheet('login_details')
+    print("===================================")
+    print("Welcome to the Naval Defence System")
+    print("===================================")
+    new_old = raw_input("Are you a new user? Y/N \n").lower()
+    if new_old.lower() == "Y":
+        username = input("Enter a username:\n")
+        password = input("Enter a password:\n")
+        date = date.today()
+
+
+
+    try:
+        if new_old not in ['Y', 'N']:
+            raise ValueError(
+                "Invalid Input."
+            )
+    except ValueError as e:
+        print(f"{e} Please type in Y or N.")
+
+    
+    name = input("Please enter your name:\n")
+    print(f"Welcome Admiral {name}.")
+
+    try:
+        if str(difficulty) not in valid_difficulties:
+            raise ValueError(
+                )
+    except ValueError as e:
+        print(f"{e} Please try again.")
+        return False
+
+    return True
 
 def main_screen():
     """
@@ -52,25 +85,6 @@ def main_screen():
     print("        |_.__/ \__,_|\__|\__|_|\___||___/_| |_|_| .__/ |___/ ")
     print("                                                | |   ") 
     print("                                                |_| ")
-    name = input("Please enter your name:\n")
-    print(f"Welcome Admiral {name}.")
-    difficulty = input("Choose your theatre of operations:\n The Mediterranean Sea (Easy),\n The Atlantic Ocean (Normal),\n The Pacific Ocean (Hard).\n")
-    print(f"You have selected: {difficulty}")
-    return difficulty.lower()
-
-def check_difficulty(difficulty):
-    valid_difficulties = {'easy', 'medium', 'hard'}
-    try:
-        if str(difficulty) not in valid_difficulties:
-            raise ValueError(
-                "Type in the difficulty level."
-                )
-    except ValueError as e:
-        print(f"{e} Please try again.")
-        return False
-
-    return True
-
 
 class GameBoard():
     """
@@ -214,6 +228,7 @@ def main():
     Run all functions.
     """
     # difficulty = 
+    login()
     main_screen()
     # check_difficulty(difficulty)
     run_game()
