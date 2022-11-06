@@ -23,13 +23,33 @@ def login():
     Asks new users to create login details.
     Checks if existing users have correct information.
     """
+    while True:
+        print("===================================")
+        print("Welcome to the Naval Defence System")
+        print("===================================")
+        new_old = input("Are you a new user? Y/N \n")
+
+        if check_login(new_old):
+            break
+    return new_old
+
+def check_login(un_pw):
+    try:
+        str(un_pw)
+        if un_pw not in ['Y', 'y', 'N', 'n']:
+            raise ValueError(
+                "Invalid Input."
+            )
+    except ValueError as e:
+        print(f"{e} Please type in Y or N.")
+        return False
+
+    return True
+"""
+def new_user():
     un_login = SHEET.worksheet('username')
     pw_login = SHEET.worksheet('password')
     date_login = SHEET.worksheet('datetime')
-    print("===================================")
-    print("Welcome to the Naval Defence System")
-    print("===================================")
-    new_old = input("Are you a new user? Y/N \n")
     if str(new_old) == "Y":
         new_un = input("Enter a username:\n")
         un_lst = str.split(new_un)
@@ -39,7 +59,9 @@ def login():
         pw_lst = str.split(new_pw)
         pw_login.append_row(pw_lst)
         print("Password stored.")
-    elif str(new_old) == "N":
+
+# def old_user():
+        elif str(new_old) == "N":
         old_un = input("Enter your username:\n")
         check_un = un_login.find(old_un)
         print(f"{check_un} found.")
@@ -47,20 +69,7 @@ def login():
         check_pw = pw_login.find(old_pw)
         print(f"{check_pw} verified.")
         print(f"Welcome back Admiral {old_un}")
-    return new_old
-
-def check_login(new_old):
-    while True:
-        try:
-            if new_old not in {'Y', 'N'}:
-                raise ValueError(
-                    "Invalid Input."
-                )
-        except ValueError as e:
-            print(f"{e} Please type in Y or N.")
-            return False
-        return True
-
+"""
 def main_screen():
     """
     A function to generate the main screen before the game starts.
@@ -231,11 +240,9 @@ def main():
     """
     Run all functions.
     """
-    # difficulty =
     un_pw = login()
     check_login(un_pw)
     main_screen()
-    # check_difficulty(difficulty)
     run_game()
 
 main()
