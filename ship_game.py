@@ -1,6 +1,7 @@
 # imports the inbuilt python random module
 import random
 import datetime
+# import login
 # imports google spreadhseet and google credentials APIs
 import gspread
 from google.oauth2.service_account import Credentials
@@ -17,59 +18,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('user_data_sheet')
 
-def login():
-    """
-    Asks user if they're a new or existing user.
-    Asks new users to create login details.
-    Checks if existing users have correct information.
-    """
-    while True:
-        print("===================================")
-        print("Welcome to the Naval Defence System")
-        print("===================================")
-        new_old = input("Are you a new user? Y/N \n")
-
-        if check_login(new_old):
-            break
-    return new_old
-
-def check_login(un_pw):
-    try:
-        str(un_pw)
-        if un_pw not in ['Y', 'y', 'N', 'n']:
-            raise ValueError(
-                "Invalid Input."
-            )
-    except ValueError as e:
-        print(f"{e} Please type in Y or N.")
-        return False
-
-    return True
-"""
-def new_user():
-    un_login = SHEET.worksheet('username')
-    pw_login = SHEET.worksheet('password')
-    date_login = SHEET.worksheet('datetime')
-    if str(new_old) == "Y":
-        new_un = input("Enter a username:\n")
-        un_lst = str.split(new_un)
-        un_login.append_row(un_lst)
-        print(f"Welcome Admiral {new_un}")
-        new_pw = input("Enter a password:\n")
-        pw_lst = str.split(new_pw)
-        pw_login.append_row(pw_lst)
-        print("Password stored.")
-
-# def old_user():
-        elif str(new_old) == "N":
-        old_un = input("Enter your username:\n")
-        check_un = un_login.find(old_un)
-        print(f"{check_un} found.")
-        old_pw = input("Enter your password:\n")
-        check_pw = pw_login.find(old_pw)
-        print(f"{check_pw} verified.")
-        print(f"Welcome back Admiral {old_un}")
-"""
 def main_screen():
     """
     A function to generate the main screen before the game starts.
@@ -127,7 +75,7 @@ class Warship:
         Will generate a series of ships.
         Ship sizes preset but locations generated randomly.
         """
-        for i in range(5):
+        for i in range(8):
             self.x_row, self.y_column = random.randint(0, 8), random.randint(0, 8)
             while self.board[self.x_row][self.y_column] == "X":
                 self.x_row, self.y_column = random.randint(0, 8), random.randint(0, 8)
@@ -180,8 +128,9 @@ def run_game():
     user_target_board = GameBoard([[" "] * 9 for i in range(9)])
     Warship.generate_fleet(enemy_board)
     Warship.generate_fleet(user_board)
+    result = SHEET.worksheet('result')
     # turn counter
-    missiles = 200
+    missiles = 90
     while missiles > 0 :
         GameBoard.generate_board(user_target_board)
         GameBoard.generate_board(enemy_target_board)
@@ -199,8 +148,9 @@ def run_game():
             print("Miss. No enemy warship at those co-ordinates.")
             user_target_board.board[user_x_row][user_y_column] = "-"
         # check victory condition
-        if Warship.count_damaged_ships(user_target_board) == 5:
+        if Warship.count_damaged_ships(user_target_board) == 8:
             print("Victory! The enemy fleet has been sunk!")
+            result.append_row('Victory')
             break
         else:
             missiles -= 1
@@ -208,6 +158,7 @@ def run_game():
             if missiles == 0:
                 print("We are out of missiles. The enemy fleet has escaped.")
                 GameBoard.generate_board(user_target_board)
+                result.append_row('Defeat')
         # get computer input
         enemy_x_row, enemy_y_column = Warship.enemy_fire_mission(object)
         while enemy_target_board.board[enemy_x_row][enemy_y_column] == "-" or enemy_target_board.board[enemy_x_row][enemy_y_column] == "X":
@@ -220,14 +171,16 @@ def run_game():
             print("The enemy have missed!")
             enemy_target_board.board[enemy_x_row][enemy_y_column] = "-"
         # check victory condition
-        if Warship.count_damaged_ships(enemy_target_board) == 5:
+        if Warship.count_damaged_ships(enemy_target_board) == 8:
             print("Retreat! The enemy have sunk our fleet!")
+            result.append_row('Defeat')
             break
         else:
             missiles -= 1
             if missiles == 0:
                 print("The enemy have run out of missiles.")
                 GameBoard.generate_board(enemy_target_board)
+                result.append_row('Defeat')
 
 
 def game_over():
@@ -240,8 +193,6 @@ def main():
     """
     Run all functions.
     """
-    un_pw = login()
-    check_login(un_pw)
     main_screen()
     run_game()
 
