@@ -24,35 +24,42 @@ def login():
     Checks if existing users have correct information.
     """
     un_login = SHEET.worksheet('username')
-    ps_login = SHEET.worksheet('password')
+    pw_login = SHEET.worksheet('password')
     date_login = SHEET.worksheet('datetime')
     print("===================================")
     print("Welcome to the Naval Defence System")
     print("===================================")
     new_old = input("Are you a new user? Y/N \n")
     if str(new_old) == "Y":
-        username = input("Enter a username:\n")
-        un_lst = str.split(username)
+        new_un = input("Enter a username:\n")
+        un_lst = str.split(new_un)
         un_login.append_row(un_lst)
-        print(f"Welcome Admiral {username}")
-        password = input("Enter a password:\n")
-        ps_lst = str.split(password)
-        ps_login.append_row(ps_lst)
+        print(f"Welcome Admiral {new_un}")
+        new_pw = input("Enter a password:\n")
+        pw_lst = str.split(new_pw)
+        pw_login.append_row(pw_lst)
         print("Password stored.")
-    else str(new_old) == "N":
-        
+    elif str(new_old) == "N":
+        old_un = input("Enter your username:\n")
+        check_un = un_login.find(old_un)
+        print(f"{check_un} found.")
+        old_pw = input("Enter your password:\n")
+        check_pw = pw_login.find(old_pw)
+        print(f"{check_pw} verified.")
+        print(f"Welcome back Admiral {old_un}")
+    return new_old
 
-
-def check_login():
-    try:
-        if new_old not in {'Y', 'N'}:
-            raise ValueError(
-                "Invalid Input."
-            )
-    except ValueError as e:
-        print(f"{e} Please type in Y or N.")
-        return False
-    return True
+def check_login(new_old):
+    while True:
+        try:
+            if new_old not in {'Y', 'N'}:
+                raise ValueError(
+                    "Invalid Input."
+                )
+        except ValueError as e:
+            print(f"{e} Please type in Y or N.")
+            return False
+        return True
 
 def main_screen():
     """
@@ -224,8 +231,9 @@ def main():
     """
     Run all functions.
     """
-    # difficulty = 
-    login()
+    # difficulty =
+    un_pw = login()
+    check_login(un_pw)
     main_screen()
     # check_difficulty(difficulty)
     run_game()
