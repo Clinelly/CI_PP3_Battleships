@@ -1,6 +1,6 @@
 # imports the inbuilt python random module
 import random
-from datetime import date
+import datetime
 # imports google spreadhseet and google credentials APIs
 import gspread
 from google.oauth2.service_account import Credentials
@@ -23,38 +23,35 @@ def login():
     Asks new users to create login details.
     Checks if existing users have correct information.
     """
-    user_login = SHEET.worksheet('login_details')
+    un_login = SHEET.worksheet('username')
+    ps_login = SHEET.worksheet('password')
+    date_login = SHEET.worksheet('datetime')
     print("===================================")
     print("Welcome to the Naval Defence System")
     print("===================================")
-    new_old = raw_input("Are you a new user? Y/N \n").lower()
-    if new_old.lower() == "Y":
+    new_old = input("Are you a new user? Y/N \n")
+    if str(new_old) == "Y":
         username = input("Enter a username:\n")
+        un_lst = str.split(username)
+        un_login.append_row(un_lst)
+        print(f"Welcome Admiral {username}")
         password = input("Enter a password:\n")
-        date = date.today()
+        ps_lst = str.split(password)
+        ps_login.append_row(ps_lst)
+        print("Password stored.")
+    else str(new_old) == "N":
+        
 
 
-
+def check_login():
     try:
-        if new_old not in ['Y', 'N']:
+        if new_old not in {'Y', 'N'}:
             raise ValueError(
                 "Invalid Input."
             )
     except ValueError as e:
         print(f"{e} Please type in Y or N.")
-
-    
-    name = input("Please enter your name:\n")
-    print(f"Welcome Admiral {name}.")
-
-    try:
-        if str(difficulty) not in valid_difficulties:
-            raise ValueError(
-                )
-    except ValueError as e:
-        print(f"{e} Please try again.")
         return False
-
     return True
 
 def main_screen():
