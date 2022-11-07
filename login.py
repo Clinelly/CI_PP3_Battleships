@@ -27,7 +27,12 @@ def login():
         print("===================================")
         print("Welcome to the Naval Defence System")
         print("===================================")
-        new_old = input("Are you a new user? Y/N \n")
+        new_old = input("Are you a new user? Y/N \n").lower()
+
+        if str(new_old) == 'y':
+            new_user(new_old)
+        else:
+            old_user(new_old)
 
         if check_login(new_old):
             break
@@ -36,21 +41,17 @@ def login():
 def check_login(un_pw):
     try:
         str(un_pw)
-        if un_pw not in ['Y', 'y', 'N', 'n']:
+        if un_pw not in ['y', 'n']:
             raise ValueError(
                 "Invalid Input."
             )
     except ValueError as e:
         print(f"{e} Please type in Y or N.")
         return False
-    if str(un_pw) in ["Y", "y"]:
-        new_user(un_pw)
-    else:
-        old_user(un_pw)
 
     return True
 
-def new_user(un_pw):
+def new_user(new_old):
     un_login = SHEET.worksheet('username')
     pw_login = SHEET.worksheet('password')
     new_un = input("Enter a username:\n")
@@ -62,7 +63,7 @@ def new_user(un_pw):
     pw_login.append_row(pw_lst)
     print("Password stored.")
 
-def old_user(un_pw):
+def old_user(new_old):
     un_login = SHEET.worksheet('username')
     pw_login = SHEET.worksheet('password')
     old_un = input("Enter your username:\n")
@@ -77,7 +78,7 @@ def main():
     """
     Run all functions.
     """
-    un_pw = login()
-    check_login(un_pw)
+    new_old = login()
+    check_login(new_old)
 
 main()
