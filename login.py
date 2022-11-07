@@ -30,9 +30,9 @@ def login():
         new_old = input("Are you a new user? Y/N \n").lower()
 
         if str(new_old) == 'y':
-            new_user(new_old)
+            new_user()
         else:
-            old_user(new_old)
+            old_user()
 
         if check_login(new_old):
             break
@@ -51,7 +51,7 @@ def check_login(un_pw):
 
     return True
 
-def new_user(new_old):
+def new_user():
     un_login = SHEET.worksheet('username')
     pw_login = SHEET.worksheet('password')
     new_un = input("Enter a username:\n")
@@ -63,16 +63,24 @@ def new_user(new_old):
     pw_login.append_row(pw_lst)
     print("Password stored.")
 
-def old_user(new_old):
+def old_user():
     un_login = SHEET.worksheet('username')
     pw_login = SHEET.worksheet('password')
     old_un = input("Enter your username:\n")
     check_un = un_login.find(old_un)
-    print(f"{check_un} found.")
+    if check_un is None:
+        print('Username not found. Please try again.')
+        old_user()
+    else:
+        print(f"Welcome back Admiral {old_un}.")
     old_pw = input("Enter your password:\n")
     check_pw = pw_login.find(old_pw)
-    print(f"{check_pw} verified.")
-    print(f"Welcome back Admiral {old_un}")
+    if check_pw is None:
+        print("Password invalid. Please try again.")
+        old_user()
+    else:
+        print("Password verified.")
+    
 
 def main():
     """
