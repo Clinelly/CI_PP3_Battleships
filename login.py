@@ -69,18 +69,17 @@ def old_user():
     old_un = input("Enter your username:\n")
     check_un = un_login.find(old_un)
     if check_un is None:
-        print('Username not found. Please try again.')
-        old_user()
+        print('Username not found. Check your credentials and try again.')
+        login()
     else:
         print(f"Welcome back Admiral {old_un}.")
     old_pw = input("Enter your password:\n")
     check_pw = pw_login.find(old_pw)
     if check_pw is None:
-        print("Password invalid. Please try again.")
-        old_user()
+        print("Password invalid. Check your credentials and try again.")
+        login()
     else:
         print("Password verified.")
-    
 
 def main():
     """
