@@ -1,11 +1,11 @@
 # imports the inbuilt python random module
 import random
-import datetime
+
 # imports google spreadhseet and google credentials APIs
 import gspread
 from google.oauth2.service_account import Credentials
 
-# Global variables assigned to allow accress through Google APIS to spreadsheet.
+# Global variables assigned to allow access through Google APIs to gspread.
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -16,6 +16,7 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('user_data_sheet')
+
 
 def login():
     """
@@ -38,7 +39,12 @@ def login():
             break
     return new_old
 
+
 def check_login(un_pw):
+    """
+    Checks user input is acceptable.
+    Raises ValueError if not.
+    """
     try:
         str(un_pw)
         if un_pw not in ['y', 'n']:
@@ -51,7 +57,12 @@ def check_login(un_pw):
 
     return True
 
+
 def new_user():
+    """
+    Prompts user to choose their username and password.
+    Takes user input and stores them in the google spreadsheet.
+    """
     un_login = SHEET.worksheet('username')
     pw_login = SHEET.worksheet('password')
     new_un = input("Enter a username:\n")
@@ -63,7 +74,14 @@ def new_user():
     pw_login.append_row(pw_lst)
     print("Password stored.")
 
+
 def old_user():
+    """
+    Prompts a returning user to enter their username and password.
+    Checks user input against values stored in the spreadsheet.
+    Invalid inputs cause users to return to login step.
+
+    """
     un_login = SHEET.worksheet('username')
     pw_login = SHEET.worksheet('password')
     old_un = input("Enter your username:\n")
@@ -81,11 +99,13 @@ def old_user():
     else:
         print("Password verified.")
 
+
 def main():
     """
     Run all functions.
     """
     new_old = login()
     check_login(new_old)
+
 
 main()

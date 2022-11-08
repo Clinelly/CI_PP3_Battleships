@@ -128,7 +128,6 @@ def run_game():
     user_target_board = GameBoard([[" "] * 9 for i in range(9)])
     Warship.generate_fleet(enemy_board)
     Warship.generate_fleet(user_board)
-    result = SHEET.worksheet('result')
     # turn counter
     missiles = 90
     while missiles > 0 :
@@ -150,7 +149,6 @@ def run_game():
         # check victory condition
         if Warship.count_damaged_ships(user_target_board) == 8:
             print("Victory! The enemy fleet has been sunk!")
-            result.append_row('Victory')
             break
         else:
             missiles -= 1
@@ -158,7 +156,6 @@ def run_game():
             if missiles == 0:
                 print("We are out of missiles. The enemy fleet has escaped.")
                 GameBoard.generate_board(user_target_board)
-                result.append_row('Defeat')
         # get computer input
         enemy_x_row, enemy_y_column = Warship.enemy_fire_mission(object)
         while enemy_target_board.board[enemy_x_row][enemy_y_column] == "-" or enemy_target_board.board[enemy_x_row][enemy_y_column] == "X":
@@ -173,14 +170,12 @@ def run_game():
         # check victory condition
         if Warship.count_damaged_ships(enemy_target_board) == 8:
             print("Retreat! The enemy have sunk our fleet!")
-            result.append_row('Defeat')
             break
         else:
             missiles -= 1
             if missiles == 0:
                 print("The enemy have run out of missiles.")
                 GameBoard.generate_board(enemy_target_board)
-                result.append_row('Defeat')
 
 
 def game_over():
