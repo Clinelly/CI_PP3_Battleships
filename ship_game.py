@@ -161,8 +161,8 @@ def run_game():
     Warship.generate_fleet(enemy_board)
     Warship.generate_fleet(user_board)
     # turn counter
-    missiles = 36
-    enemy_missiles = 36
+    missiles = 2
+    enemy_missiles = 2
     while missiles > 0:
         GameBoard.generate_board(user_target_board)
         GameBoard.generate_board(enemy_target_board)
@@ -222,6 +222,13 @@ def game_over():
     Runs when all ships sunk.
     Prompts user to restart or exit.
     """
+    print("GAME OVER")
+    retry = input("Would you like to play again? Y/N: \n").lower()
+
+    if str(retry) == 'y':
+        run_game()
+    else:
+        main()
 
 
 def main():
@@ -230,6 +237,7 @@ def main():
     """
     main_screen()
     run_game()
+    game_over()
 
 
 main()
