@@ -9,13 +9,13 @@ from google.oauth2.service_account import Credentials
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
-    ]
+    "https://www.googleapis.com/auth/drive",
+]
 
-CREDS = Credentials.from_service_account_file('creds.json')
+CREDS = Credentials.from_service_account_file("creds.json")
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('user_data_sheet')
+SHEET = GSPREAD_CLIENT.open("user_data_sheet")
 
 
 def login():
@@ -30,7 +30,7 @@ def login():
         print("===================================")
         new_old = input("Are you a new user? Y/N \n").lower()
 
-        if str(new_old) == 'y':
+        if str(new_old) == "y":
             new_user()
         else:
             old_user()
@@ -47,10 +47,8 @@ def check_login(un_pw):
     """
     try:
         str(un_pw)
-        if un_pw not in ['y', 'n']:
-            raise ValueError(
-                "Invalid Input."
-            )
+        if un_pw not in ["y", "n"]:
+            raise ValueError("Invalid Input.")
     except ValueError as e:
         print(f"{e} Please type in Y or N.")
         return False
@@ -63,8 +61,8 @@ def new_user():
     Prompts user to choose their username and password.
     Takes user input and stores them in the google spreadsheet.
     """
-    un_login = SHEET.worksheet('username')
-    pw_login = SHEET.worksheet('password')
+    un_login = SHEET.worksheet("username")
+    pw_login = SHEET.worksheet("password")
     new_un = input("Enter a username:\n")
     un_lst = str.split(new_un)
     un_login.append_row(un_lst)
@@ -82,12 +80,12 @@ def old_user():
     Invalid inputs cause users to return to login step.
 
     """
-    un_login = SHEET.worksheet('username')
-    pw_login = SHEET.worksheet('password')
+    un_login = SHEET.worksheet("username")
+    pw_login = SHEET.worksheet("password")
     old_un = input("Enter your username:\n")
     check_un = un_login.find(old_un)
     if check_un is None:
-        print('Username not found. Check your credentials and try again.')
+        print("Username not found. Check your credentials and try again.")
         login()
     else:
         print(f"Welcome back Admiral {old_un}.")
