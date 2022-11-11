@@ -215,6 +215,7 @@ def run_game():
             if missiles == 0:
                 print("The enemy have run out of missiles.")
                 GameBoard.generate_board(enemy_target_board)
+    game_over()
 
 
 def game_over():
@@ -228,7 +229,8 @@ def game_over():
     if str(retry) == 'y':
         run_game()
     else:
-        main()
+        print("Thank you Admiral. You are relieved of your command.")
+        quit()
 
 
 def main():
