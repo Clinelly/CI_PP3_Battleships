@@ -1,4 +1,8 @@
 # Battleships
+
+Battleships is a game of logic, with players attempting to sink each others fleet by guessing co-ordinates.
+This version uses a a board generated using Python lists and incorporates a logic engine to allow the computer to fire back at the user.
+
 (Developer: Stuart Wall)
 
 ![Start screen]()
@@ -70,13 +74,20 @@
 ## Features
 
 ### Welcome Message
-- Shows a welcome message and an ASCII art containing an open book
+- Shows a welcome message and an ASCII art warship.
 
 
 ## Validation
 
 ### PEP8 validation
-PEP8 online was used to check the code for PEP8 requirements.
+At the time of creation, the PEP8 online Python validation website was inoperative. To validate the code, a PEP8 validator that is built into the GitPod Workspace was used.
+
+1. Run the command 'pip3 install pycodestyle'. (Note that this extension may already be installed, in which case this command will do nothing.)
+2. In the workspace, press Ctrl+Shift+P (or Cmd+Shift+P on Mac).
+3. Type the word 'linter' into the search bar that appears. 
+4. Click on 'Python: Select Linter' from the filtered results.
+5. Select 'pycodestyle' from the list.
+6. PEP8 errors will now be underlined in red, as well as being listed in the PROBLEMS tab beside your terminal;
 
 
 ### Testing user stories
