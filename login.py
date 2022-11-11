@@ -32,7 +32,7 @@ def login():
 
         if str(new_old) == "y":
             new_user()
-        else:
+        elif str(new_old) == "n":
             old_user()
 
         if check_login(new_old):
@@ -40,14 +40,14 @@ def login():
     return new_old
 
 
-def check_login(un_pw):
+def check_login(new_old):
     """
     Checks user input is acceptable.
     Raises ValueError if not.
     """
     try:
-        str(un_pw)
-        if un_pw not in ["y", "n"]:
+        str(new_old)
+        if new_old not in {"y", "n"}:
             raise ValueError("Invalid Input.")
     except ValueError as e:
         print(f"{e} Please type in Y or N.")
