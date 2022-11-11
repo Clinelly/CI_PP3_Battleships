@@ -96,14 +96,3 @@ def old_user():
         login()
     else:
         print("Password verified.")
-
-
-def main():
-    """
-    Run all functions.
-    """
-    new_old = login()
-    check_login(new_old)
-
-
-main()

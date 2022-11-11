@@ -1,5 +1,6 @@
 # imports the inbuilt python random module
 import random
+# imports login.py file
 import login
 
 # imports google spreadhseet and google credentials APIs
@@ -237,9 +238,13 @@ def main():
     """
     Run all functions.
     """
+    new_old = login.login()
+    login.check_login(new_old)
     main_screen()
     run_game()
-    game_over()
 
 
 main()
+
+if __name__ == "__main__":
+    main()
