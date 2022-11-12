@@ -30,7 +30,6 @@ This version uses a a board generated using Python lists and incorporates a logi
     2. [Testing user stories](#testing-user-stories)
 8. [Bugs](#Bugs)
 9. [Deployment](#deployment)
-    1. [EmailJS API](#emailjs-api)
 10. [Credits](#credits)
 11. [Acknowledgments](#acknowledgments)
 
@@ -39,9 +38,11 @@ This version uses a a board generated using Python lists and incorporates a logi
 
 ### User Goals
 
+The application user wants to play a logic game
 
 ### Site Owner Goals
-
+The Battleships game is played on grids on which each player's fleet of battleships are marked. The locations of the fleets are concealed from the other player. Players call shots at the other player's ships, and the objective of the game is to destroy the opposing player's fleet.
+The application provides a working battleships game for a single user to play against the computer.
 
 ## User Experience
 
