@@ -18,7 +18,6 @@ This version uses a a board generated using Python lists and incorporates a logi
     1. [Target Audience](#target-audience)
     2. [User Requirements and Expectations](#user-requirements-and-expectations)
     3. [User Stories](#user-stories)
-    4. [Site Owner Stories](#site-owner-stories)
 3. [Technical Design](#technical-design)
     1. [Flowchart](#flowchart)
 4. [Technologies Used](#technologies-used)
@@ -38,7 +37,7 @@ The project goal is to create a logic game using Python.
 
 ### User Goals
 
-The application user wants to play a logic game
+The application user wants to play a logic game.
 
 ### Site Owner Goals
 The Battleships game is played on grids on which each player's fleet of battleships are marked. The locations of the fleets are concealed from the other player. Players call shots at the other player's ships, and the objective of the game is to destroy the opposing player's fleet.
@@ -53,11 +52,14 @@ The application provides a working battleships game for a single user to play ag
 
 ### User Requirements and Expectations
 
-
 ### User Stories
-
-### Site Owner Stories
-
+1. To create a personal username.
+2. To be able to return to the game with my username and password.
+3. To have an immersive experience.
+4. To have real-time feedback when playing the game.
+5. To be able to play the game against a computer opponent.
+6. To be told when the game has been won or lost.
+7. To be able to easily replay the game if wanted.
 
 ## Technical Design
 
@@ -75,6 +77,10 @@ The application provides a working battleships game for a single user to play ag
 - Python 3
 
 ### Frameworks & Tools
+- LucidChart
+- Heroku
+- Google Drive
+- Google Spreadsheet
 - gitHub
 - Gitpod
 - Git
