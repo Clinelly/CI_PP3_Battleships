@@ -60,7 +60,12 @@ The application provides a working battleships game for a single user to play ag
 ## Technical Design
 
 ### Flowchart
-
+<details><summary>Login</summary>
+<img src="docs/logic_diagrams/login_chart.jpeg">
+</details>
+<details><summary>Game</summary>
+<img src="docs/logic_diagrams/game_chart.jpeg">
+</details>
 
 ## Technologies Used
 
