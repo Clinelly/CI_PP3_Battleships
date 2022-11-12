@@ -95,7 +95,7 @@ At the time of creation, the PEP8 online Python validation website was inoperati
 3. Type the word 'linter' into the search bar that appears. 
 4. Click on 'Python: Select Linter' from the filtered results.
 5. Select 'pycodestyle' from the list.
-6. PEP8 errors will now be underlined in red, as well as being listed in the PROBLEMS tab beside your terminal;
+6. PEP8 errors will now be underlined in red, as well as being listed in the PROBLEMS tab beside the terminal.
 
 
 ### Testing user stories
