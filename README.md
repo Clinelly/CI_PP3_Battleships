@@ -90,35 +90,35 @@ The application provides a working battleships game for a single user to play ag
 ### Welcome Message
 - Shows a welcome message.
 User Stories covered: 3, 4
-<img src="docs/welcome_screen.png">
+<img src="docs/features/welcome_screen.png">
 
 ### Username/Password Input
 - Prompts a user to input a username and password.
 - Returning users can have their credentials recoved from a spreadsheet.
 User Stories covered: 1,3
-<img src="docs/username_password.png">
+<img src="docs/features/username_password.png">
 
 ### Battleships Screen 
 - Shows an ASCII art warship and logo.
 User Stories covered: 3
-<img src="docs/main_screen.png">
+<img src="docs/features/main_screen.png">
 
 ### Game Board
 - Shows the generated game boards for the user and the computer.
 User Stories covered: 3, 4, 5
-<img src="docs/game_board.png">
+<img src="docs/features/game_board.png">
 
 ### Game Inputs
 - Allows the user to input their guesses and feedsback the result.
 - Shows the computer's guess.
 User Stories covered: 3, 4, 5
-<img src="docs/game_inputs.png">
+<img src="docs/features/game_inputs.png">
 
 ### Game Over
 - Shows the end-of-game state to the user once a victory condition has been met.
 - Allows user to retry the game or to quit the program.
 User Stories covered: 4, 6, 7
-<img src="docs/game_over.png">
+<img src="docs/features/game_over.png">
 
 
 ## Validation
@@ -136,11 +136,56 @@ At the time of creation, the PEP8 online Python validation website was inoperati
 
 ### Testing user stories
 
-1. 
+1. To create a personal username.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
+| Welcome Screen. | Input 'Y' to set up a new profile. Enter username. | Accepts input and stores username to spreadsheet. | Working as implemented. |
 
+2. To be able to return to the game with my username and password.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Welcome Screen. | Input 'N' and type in username and password. | Accepts input and checks spreadseet for the input values. | Working as implemented. 
+
+3. To have an immersive experience.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Welcome Screen. | Input username. | Console prints message welcoming the user as Admiral. | Working as implemented. |
+| Main Screen. | Shows after user inputs username and password. | Console prints ASCII warship and game logo. | Working as implemented. |
+| Game Board. | Generates upon game start. | Generates a board similar to the board game. | Working as implemented. |
+| Game Inputs. | User inputs co-ordinates to fire on. | Feedback uses military terminology. | Working as implemented. |
+
+
+4. To have real-time feedback when playing the game.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Welcome Screen. | Input username and password. | Console feedsback messages to user. | Working as implemented. |
+| Game Board. | Generates at the start of the game and refreshes after every turn. | Game board is printed and updated with user and computer inputs after each turn. | Working as implemented. |
+| Game Inputs. | User inputs their choice of co-ordinates. Computer does the same. | Results are printed back to the user after each turn. | Working as implemented. |
+
+5. To be able to play the game against a computer opponent.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Game Board. |  Generates at the start of the game and refreshes after every turn. | Game board is printed and updated with user and computer inputs after each turn. | Working as implemented. |
+| Game Inputs. | Computer generates a shot after the user has taken a turn. | Results are updated on the board and printed back to the user after each computer turn. | Working as implemented. |
+
+6. To be told when the game has been won or lost.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Game Inputs. | After a game over condition is met. | Game over condition is printed back to the user. | Working as implemented. |
+| Game Over. | After a game over condition is met. | Results are updated on the board and printed back to the user after each computer turn. | Working as implemented. |
+
+
+7. To be able to easily replay the game if wanted.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Game Over. | After a game over condition is met. User inputs Y or N | Input of Y re-runs the game. Input of N exits the program. | Working as implemented. |
 
 ## Bugs
 
