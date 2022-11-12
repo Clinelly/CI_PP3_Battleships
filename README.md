@@ -104,7 +104,7 @@ At the time of creation, the PEP8 online Python validation website was inoperati
 | ----------- | ----------- |
 | New and Old User functions activated twice. | Moved the function calls to the Login function if/elif statements. |
 | Missile counter decreased by two each round. | Seperated missile variable into two; one for the user and computer. |
-| New and Old User functions activated twice. | Moved the function calls to the Login function if/elif statements. |
+| Check Login function would not validate user input. | Changed syntax of the Login function if/elif statements. |
 
 ## Deployment
 The website was deployed using Heroku by "following these steps:
