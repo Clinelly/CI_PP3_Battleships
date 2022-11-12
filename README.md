@@ -5,9 +5,9 @@ This version uses a a board generated using Python lists and incorporates a logi
 
 (Developer: Stuart Wall)
 
-![Start screen]()
+![Start screen](docs/battleships_start.png)
 
-[Live webpage]()
+[Live webpage](https://ci-pp3-battleships-clinelly.herokuapp.com/)
 
 ## Table of Content
 
