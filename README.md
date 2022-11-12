@@ -34,7 +34,7 @@ This version uses a a board generated using Python lists and incorporates a logi
 11. [Acknowledgments](#acknowledgments)
 
 ## Project Goals 
-
+The project goal is to create a logic game using Python.
 
 ### User Goals
 
@@ -47,7 +47,9 @@ The application provides a working battleships game for a single user to play ag
 ## User Experience
 
 ### Target Audience
-
+- Younger users who like playing games.
+- Users who are looking for a game to pass time on during a break.
+- Older users who are looking for a logic challenge.
 
 ### User Requirements and Expectations
 
