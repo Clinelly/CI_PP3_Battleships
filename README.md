@@ -88,7 +88,37 @@ The application provides a working battleships game for a single user to play ag
 ## Features
 
 ### Welcome Message
-- Shows a welcome message and an ASCII art warship.
+- Shows a welcome message.
+User Stories covered: 3, 4
+<img src="docs/welcome_screen.png">
+
+### Username/Password Input
+- Prompts a user to input a username and password.
+- Returning users can have their credentials recoved from a spreadsheet.
+User Stories covered: 1,3
+<img src="docs/username_password.png">
+
+### Battleships Screen 
+- Shows an ASCII art warship and logo.
+User Stories covered: 3
+<img src="docs/main_screen.png">
+
+### Game Board
+- Shows the generated game boards for the user and the computer.
+User Stories covered: 3, 4, 5
+<img src="docs/game_board.png">
+
+### Game Inputs
+- Allows the user to input their guesses and feedsback the result.
+- Shows the computer's guess.
+User Stories covered: 3, 4, 5
+<img src="docs/game_inputs.png">
+
+### Game Over
+- Shows the end-of-game state to the user once a victory condition has been met.
+- Allows user to retry the game or to quit the program.
+User Stories covered: 4, 6, 7
+<img src="docs/game_over.png">
 
 
 ## Validation
