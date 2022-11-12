@@ -142,11 +142,19 @@ At the time of creation, the PEP8 online Python validation website was inoperati
 |-------------|------------|---------------------|-------------------|
 | Welcome Screen. | Input 'Y' to set up a new profile. Enter username. | Accepts input and stores username to spreadsheet. | Working as implemented. |
 
+<details><summary>Welcome Screen</summary>
+<img src="docs/user_testing/user_test_1_username.png">
+</details>
+
 2. To be able to return to the game with my username and password.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
 | Welcome Screen. | Input 'N' and type in username and password. | Accepts input and checks spreadseet for the input values. | Working as implemented. 
+
+<details><summary>Welcome Screen</summary>
+<img src="docs/user_testing/user_test_2_return.png">
+</details>
 
 3. To have an immersive experience.
 
@@ -157,6 +165,15 @@ At the time of creation, the PEP8 online Python validation website was inoperati
 | Game Board. | Generates upon game start. | Generates a board similar to the board game. | Working as implemented. |
 | Game Inputs. | User inputs co-ordinates to fire on. | Feedback uses military terminology. | Working as implemented. |
 
+<details><summary>Welcome Screen</summary>
+<img src="docs/user_testing/user_test_3_welcome.png">
+</details><details><summary>Main Screen</summary>
+<img src="docs/user_testing/user_test_3_main_screen.png">
+</details><details><summary>Game Board</summary>
+<img src="docs/user_testing/user_test_3_boards.png">
+</details><details><summary>Game Inputs</summary>
+<img src="docs/user_testing/user_test_3_inputs.png">
+</details>
 
 4. To have real-time feedback when playing the game.
 
@@ -166,12 +183,28 @@ At the time of creation, the PEP8 online Python validation website was inoperati
 | Game Board. | Generates at the start of the game and refreshes after every turn. | Game board is printed and updated with user and computer inputs after each turn. | Working as implemented. |
 | Game Inputs. | User inputs their choice of co-ordinates. Computer does the same. | Results are printed back to the user after each turn. | Working as implemented. |
 
+<details><summary>Welcome Screen</summary>
+<img src="docs/user_testing/user_test_4_login.png">
+</details><details><summary>Game Board</summary>
+<img src="docs/user_testing/user_test_4_board.png">
+</details><details><summary>Game Inputs</summary>
+<img src="docs/user_testing/user_test_4_inputs.png">
+</details>
+
+
 5. To be able to play the game against a computer opponent.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
 | Game Board. |  Generates at the start of the game and refreshes after every turn. | Game board is printed and updated with user and computer inputs after each turn. | Working as implemented. |
 | Game Inputs. | Computer generates a shot after the user has taken a turn. | Results are updated on the board and printed back to the user after each computer turn. | Working as implemented. |
+
+</details><details><summary>Game Board</summary>
+<img src="docs/user_testing/user_test_5_board.png">
+</details><details><summary>Game Inputs</summary>
+<img src="docs/user_testing/user_test_5_input.png">
+</details>
+
 
 6. To be told when the game has been won or lost.
 
@@ -180,12 +213,20 @@ At the time of creation, the PEP8 online Python validation website was inoperati
 | Game Inputs. | After a game over condition is met. | Game over condition is printed back to the user. | Working as implemented. |
 | Game Over. | After a game over condition is met. | Results are updated on the board and printed back to the user after each computer turn. | Working as implemented. |
 
+</details><details><summary>Game Inputs</summary>
+<img src="docs/user_testing/user_test_6_inputs.png">
+</details>
+</details><details><summary>Game Over</summary>
+<img src="docs/user_testing/user_test_6_game_over.png">
 
 7. To be able to easily replay the game if wanted.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
 | Game Over. | After a game over condition is met. User inputs Y or N | Input of Y re-runs the game. Input of N exits the program. | Working as implemented. |
+
+</details><details><summary>Game Over</summary>
+<img src="docs/user_testing/user_test_7_replay.png">
 
 ## Bugs
 
@@ -197,15 +238,15 @@ At the time of creation, the PEP8 online Python validation website was inoperati
 
 ## Deployment
 The website was deployed using Heroku by "following these steps:
-1. Use the "pip freeze -> requiremnts.txt" command in the terminal to save any libraries that need to be instaled in the file
-2. Login or create a Heroku account
-3. Click the "new" button in the upper right corner and select "create new app"
-4. Choose an app name and your region and click "Create app"
-5. Go to the "settings" tab, add the python build pack and then the node.js build pack
-6. Go to the "deploy" tab and pick GitHub as a deployment method
-7. Search for a repository to connect to
-8. Click enable automatic deploys and then deploy branch
-9. Wait for the app to build and then click on the "View" link
+1. Use the "pip freeze -> requiremnts.txt" command in the terminal to save any libraries that need to be installed in the file.
+2. Login or create a Heroku account.
+3. Click the "new" button in the upper right corner and select "create new app".
+4. Choose an app name and your region and click "Create app".
+5. Go to the "settings" tab, add the python build pack and then the node.js build pack.
+6. Go to the "deploy" tab and pick GitHub as a deployment method.
+7. Search for a repository to connect to.
+8. Click enable automatic deploys and then deploy branch.
+9. Wait for the app to build and then click on the "View" link.
 
 You can fork the repository by following these steps:
 1. Go to the GitHub repository
