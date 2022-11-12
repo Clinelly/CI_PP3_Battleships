@@ -1,3 +1,7 @@
+# Elements of this code were inspired by Knowledge Mavens on YouTube
+# (https://www.youtube.com/watch?v=alJH_c9t4zw&t=673s)
+# Code elements were modified for additional functionality.
+
 # imports the inbuilt python random module
 import random
 # imports login.py file

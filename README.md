@@ -222,13 +222,17 @@ You can clone the repository by following these steps:
 
 ## Credits
 
-
 ### Media
-- ASCII art:
+- ASCII art: https://asciiart.website/index.php?art=transportation/nautical
 
 ### Code
-
+- Code Institute Python lessons.
+- Code Institute Love Sandwiches project.
+- Knowledge Mavens https://www.youtube.com/watch?v=alJH_c9t4zw&t=673s
 
 ## Acknowledgments
 I would like to take the opportunity to thank:
 - My mentor Mo Shami for his feedback, advice, guidance and support.
+- My beautiful wife, Megan, for her continued love and support.
+- Jim, Sawyer, and the other fantasic members of Code Institute's community team.
+- The great people of class June '22 for their ideas and humour.
