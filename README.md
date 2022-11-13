@@ -133,6 +133,10 @@ At the time of creation, the PEP8 online Python validation website was inoperati
 5. Select 'pycodestyle' from the list.
 6. PEP8 errors will now be underlined in red, as well as being listed in the PROBLEMS tab beside the terminal.
 
+There were no errors or warnings flagged in login.py.
+There were no errors or warnings flagged in test_login.py
+15 yellow warnings were flagged in run.py. These are down to the symbol combinations used in the ASCII art and logo. These are printed direct to the console and not used in any functions.
+
 
 ### Testing user stories
 
