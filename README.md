@@ -167,11 +167,14 @@ At the time of creation, the PEP8 online Python validation website was inoperati
 
 <details><summary>Welcome Screen</summary>
 <img src="docs/user_testing/user_test_3_welcome.png">
-</details><details><summary>Main Screen</summary>
+</details>
+<details><summary>Main Screen</summary>
 <img src="docs/user_testing/user_test_3_main_screen.png">
-</details><details><summary>Game Board</summary>
+</details>
+<details><summary>Game Board</summary>
 <img src="docs/user_testing/user_test_3_boards.png">
-</details><details><summary>Game Inputs</summary>
+</details>
+<details><summary>Game Inputs</summary>
 <img src="docs/user_testing/user_test_3_inputs.png">
 </details>
 
@@ -185,9 +188,11 @@ At the time of creation, the PEP8 online Python validation website was inoperati
 
 <details><summary>Welcome Screen</summary>
 <img src="docs/user_testing/user_test_4_login.png">
-</details><details><summary>Game Board</summary>
+</details>
+<details><summary>Game Board</summary>
 <img src="docs/user_testing/user_test_4_board.png">
-</details><details><summary>Game Inputs</summary>
+</details>
+<details><summary>Game Inputs</summary>
 <img src="docs/user_testing/user_test_4_inputs.png">
 </details>
 
@@ -199,9 +204,10 @@ At the time of creation, the PEP8 online Python validation website was inoperati
 | Game Board. |  Generates at the start of the game and refreshes after every turn. | Game board is printed and updated with user and computer inputs after each turn. | Working as implemented. |
 | Game Inputs. | Computer generates a shot after the user has taken a turn. | Results are updated on the board and printed back to the user after each computer turn. | Working as implemented. |
 
-</details><details><summary>Game Board</summary>
+<details><summary>Game Board</summary>
 <img src="docs/user_testing/user_test_5_board.png">
-</details><details><summary>Game Inputs</summary>
+</details>
+<details><summary>Game Inputs</summary>
 <img src="docs/user_testing/user_test_5_input.png">
 </details>
 
@@ -213,11 +219,12 @@ At the time of creation, the PEP8 online Python validation website was inoperati
 | Game Inputs. | After a game over condition is met. | Game over condition is printed back to the user. | Working as implemented. |
 | Game Over. | After a game over condition is met. | Results are updated on the board and printed back to the user after each computer turn. | Working as implemented. |
 
-</details><details><summary>Game Inputs</summary>
+<details><summary>Game Inputs</summary>
 <img src="docs/user_testing/user_test_6_inputs.png">
 </details>
-</details><details><summary>Game Over</summary>
+<details><summary>Game Over</summary>
 <img src="docs/user_testing/user_test_6_game_over.png">
+</details>
 
 7. To be able to easily replay the game if wanted.
 
@@ -225,8 +232,9 @@ At the time of creation, the PEP8 online Python validation website was inoperati
 |-------------|------------|---------------------|-------------------|
 | Game Over. | After a game over condition is met. User inputs Y or N | Input of Y re-runs the game. Input of N exits the program. | Working as implemented. |
 
-</details><details><summary>Game Over</summary>
+<details><summary>Game Over</summary>
 <img src="docs/user_testing/user_test_7_replay.png">
+</details>
 
 ## Bugs
 
