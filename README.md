@@ -278,6 +278,7 @@ You can clone the repository by following these steps:
 - Code Institute Python lessons.
 - Code Institute Love Sandwiches project.
 - Knowledge Mavens https://www.youtube.com/watch?v=alJH_c9t4zw&t=673s
+- Corey Schafer https://www.youtube.com/watch?v=6tNS--WetLI
 
 ## Acknowledgments
 I would like to take the opportunity to thank:
