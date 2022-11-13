@@ -233,9 +233,12 @@ def game_over():
 
     if str(retry) == 'y':
         run_game()
-    else:
+    elif str(retry) == 'n':
         print("Thank you Admiral. You are relieved of your command.")
         quit()
+    elif str(retry) not in {"y", "n"}:
+        print("Invalid Input. Type in Y/N.")
+        game_over()
 
 
 def main():

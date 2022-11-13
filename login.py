@@ -18,7 +18,7 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open("user_data_sheet")
 
 
-def login():
+def login() -> str:
     """
     Asks user if they're a new or existing user.
     Asks new users to create login details.
@@ -44,6 +44,7 @@ def check_login(new_old):
     """
     Checks user input is acceptable.
     Raises ValueError if not.
+    @param new_old(str): user input from the login.
     """
     try:
         str(new_old)
