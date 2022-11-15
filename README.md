@@ -71,6 +71,8 @@ The application provides a working battleships game for a single user to play ag
 <img src="docs/logic_diagrams/game_chart.jpeg">
 </details>
 
+### Data Modelling
+
 ## Technologies Used
 
 ### Languages
@@ -249,28 +251,30 @@ There were no errors or warnings flagged in test_login.py
 | Check Login function would not validate user input. | Changed syntax of the Login function if/elif statements. |
 
 ## Deployment
-The website was deployed using Heroku by "following these steps:
-1. Use the "pip freeze -> requiremnts.txt" command in the terminal to save any libraries that need to be installed in the file.
+Use the following steps to deploy the poject to Heroku:
+1. Use the "pip freeze -> requiremnts.txt" command in the gitPod terminal; to save any libraries that need to be installed to the project files in Heroku.
 2. Login or create a Heroku account.
-3. Click the "new" button in the upper right corner and select "create new app".
-4. Choose an app name and your region and click "Create app".
-5. Go to the "settings" tab, add the python build pack and then the node.js build pack.
-6. Go to the "deploy" tab and pick GitHub as a deployment method.
-7. Search for a repository to connect to.
-8. Click enable automatic deploys and then deploy branch.
-9. Wait for the app to build and then click on the "View" link.
+3. Click the "New" button in the upper right corner and select "Create New App".
+4. Choose an app name and your region and click "Create App". Note: the app name must be unique.
+5. Go to the "Settings" tab, add the python build pack and then the node.js build pack. This is to ensure the project functions correctly with the Code Institute pre-installed template.
+6. Create a "Config VAR" with the 'CREDS' key and the enter the value of the creds.json file.
+7. Create a second "Config VAR" with the key of 'PORT' and value of '8000'
+8. Go to the "Deploy" tab and pick GitHub as a deployment method.
+9. Search for a repository to connect to.
+10. Click enable automatic deploys and then deploy branch.
+11. Wait for the app to build and then click on the "View" link.
 
 You can fork the repository by following these steps:
-1. Go to the GitHub repository
-2. Click on the Fork button in the upper right-hand corner
+1. Go to the GitHub repository.
+2. Click on the Fork button in the upper right-hand corner.
 
 You can clone the repository by following these steps:
-1. Go to the GitHub repository 
-2. Locate the Code button above the list of files and click it 
-3. Select if you prefer to clone using HTTPS, SSH, or Github CLI and click the copy button to copy the URL to your clipboard
-4. Open Git Bash
-5. Change the current working directory to the one where you want the cloned directory
-6. Type git clone and paste the URL from the clipboard ($ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY)
+1. Go to the GitHub repository.
+2. Locate the Code button above the list of files and click it.
+3. Select if you prefer to clone using HTTPS, SSH, or Github CLI and click the copy button to copy the URL to your clipboard.
+4. Open Git Bash.
+5. Change the current working directory to the one where you want the cloned directory.
+6. Type git clone and paste the URL from the clipboard ($ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY).
 7. Press Enter to create your local clone.
 
 ## Credits
