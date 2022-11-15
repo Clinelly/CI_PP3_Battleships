@@ -40,7 +40,7 @@ def login() -> str:
     return new_old
 
 
-def check_login(new_old):
+def check_login(new_old: str):
     """
     Checks user input is acceptable.
     Raises ValueError if not.
