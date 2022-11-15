@@ -72,6 +72,14 @@ The application provides a working battleships game for a single user to play ag
 </details>
 
 ### Data Modelling
+- The data stored in the Google Spreadsheet is a combination of a username and password entered by the user on the login page.
+
+- A new user will enter their choice of username and password which will be stored in the spreadsheet 'user_data_sheet' in the worksheet 'username'. Their password will be stored in the same spreadsheet but in the 'password' worksheet.
+
+- A returning user will type in their username, the function will check the 'username' worksheet for a matching value and return a welcome message if true. The user will be prompted for a password and the function will, once again, check the 'password' worksheet for a matching value. If the function returns both inputs then the user will be allowed to play the game.
+
+- If the returning user inputs do not match, the user will be taken to the start of the login function where they can try again or enter a new set of credentials.
+
 
 ## Technologies Used
 
@@ -81,8 +89,9 @@ The application provides a working battleships game for a single user to play ag
 ### Frameworks & Tools
 - LucidChart
 - Heroku
-- Google Drive
-- Google Spreadsheet
+- Google Drive: Used as a cloud hosting platform for the spreadsheet.
+- Google Spreadsheet: Used because Python does not have a built in library to store data in an external spreadsheet.
+- pycodestyle: Used as a validation tool instead of pep8 online.
 - gitHub
 - Gitpod
 - Git
