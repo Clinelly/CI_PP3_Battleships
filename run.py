@@ -112,14 +112,22 @@ class Warship:
         """
         try:
             y_col = input("Enter Co-Ordinate (A-I): ").upper()
-            while y_col not in "ABCDEFGHI":
-                print("Invalid co-ordinate. Enter another.")
+            if y_col:
+                while y_col not in "ABCDEFGHI":
+                    print("Invalid co-ordinate. Enter a letter A-I.")
+                    y_col = input("Enter Co-Ordinate (A-I): ").upper()
+            else:
+                print("Empty Input. Enter a letter A-I.")
                 y_col = input("Enter Co-Ordinate (A-I): ").upper()
             x_row = input("Enter Co-Ordinate (1-9): ")
-            while x_row not in "123456789":
-                print("Invalid co-ordinate. Enter another.")
+            if x_row:
+                while x_row not in "123456789":
+                    print("Invalid co-ordinate. Enter a number 1-9.")
+                    x_row = input("Enter Co-Ordinate (1-9): ")
+                return int(x_row) - 1, GameBoard.co_ordinates()[y_col]
+            else:
+                print("Empty Input. Enter a number 1-9.")
                 x_row = input("Enter Co-Ordinate (1-9): ")
-            return int(x_row) - 1, GameBoard.co_ordinates()[y_col]
         except ValueError and KeyError:
             print("Not a valid input. Enter a letter or a number.")
             return self.user_fire_mission()
@@ -245,8 +253,8 @@ def main():
     """
     Run all functions.
     """
-    new_old = login.login()
-    login.check_login(new_old)
+    #new_old = login.login()
+    #login.check_login(new_old)
     main_screen()
     run_game()
 
