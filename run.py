@@ -116,20 +116,28 @@ class Warship:
                 while y_col not in "ABCDEFGHI":
                     print("Invalid co-ordinate. Enter a letter A-I.")
                     y_col = input("Enter Co-Ordinate (A-I): ").upper()
+                    continue
             else:
                 while not y_col:
                     print("Empty Input. Enter a letter A-I.")
                     y_col = input("Enter Co-Ordinate (A-I): ").upper()
+                    while y_col not in "ABCDEFGHI":
+                        print("Invalid co-ordinate. Enter a letter A-I.")
+                        y_col = input("Enter Co-Ordinate (A-I): ").upper()
                     continue
             x_row = input("Enter Co-Ordinate (1-9): ")
             if x_row:
                 while x_row not in "123456789":
                     print("Invalid co-ordinate. Enter a number 1-9.")
                     x_row = input("Enter Co-Ordinate (1-9): ")
+                    continue
             else:
                 while not x_row:
                     print("Empty Input. Enter a number 1-9.")
                     x_row = input("Enter Co-Ordinate (1-9): ")
+                    while x_row not in "123456789":
+                        print("Invalid co-ordinate. Enter a number 1-9.")
+                        x_row = input("Enter Co-Ordinate (1-9): ")
                     continue
             return int(x_row) - 1, GameBoard.co_ordinates()[y_col]
         except ValueError and KeyError:
